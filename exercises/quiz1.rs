@@ -13,10 +13,15 @@
 //
 // No hints this time ;)
 
-// I AM NOT DONE
-
 // Put your function here!
-// fn calculate_price_of_apples {
+fn calculate_price_of_apples<T>(cnt: usize) -> T 
+where 
+    T: TryFrom<usize>,
+    <T as TryFrom<usize>>::Error: std::fmt::Debug
+{ 
+    let price = if cnt > 40 { 1 } else { 2 };
+    (price * cnt).try_into().unwrap()
+}
 
 // Don't modify this function!
 #[test]
