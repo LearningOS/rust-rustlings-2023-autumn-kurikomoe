@@ -46,8 +46,8 @@ impl From<&str> for Person {
         let ret = Default::default();
         if s.is_empty() { return ret; }
         let (name, age): (&str, usize) =  {
-            let d = s.split(',').take(2).collect::<Vec<_>>();
-            if d.len()!= 2 { return ret; }
+            let d = s.split(',').collect::<Vec<_>>();
+            if d.len() != 2 { return ret; }
 
             if let Ok(age) = d[1].parse::<usize>() {
                 (d[0], age)
